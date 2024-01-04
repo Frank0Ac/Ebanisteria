@@ -1,0 +1,12 @@
+<h1>{{error}}</h1>
+<img src="{{ url_for('static', filename='img/forbidden.PNG')}}"/>
+<!-- Display flash messages -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}

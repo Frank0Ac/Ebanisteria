@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{{url_for('cuenta.static', filename='styles.css')}}">
+
+{% extends "base.html" %}
+{% block title %} Registro {% endblock %}
+
+{% block content %}
+
+<body class="body-cuenta">
+    <div class="container register-container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="card-header text-center bg-dark text-white">
+                        <h3>{{ _('Sign up') }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST">
+                            {{ form.csrf_token }}
+                            <div class="form-group">
+                            {{form.usuarioreg.label()}} {{form.usuarioreg(class="form-control", placeholder=_("Choose a user name"))}}
+                            </div>
+                            <!-- validacion de errores -->
+                            {% if form.usuarioreg.errors %}
+                            <div class="alert alert-danger">
+                            {{ form.usuarioreg.errors[0] }}
+                            </div>
+                            {% endif %}
+
+                            <div class="form-group">
+                            {{form.correoreg.label()}} {{form.correoreg(class="form-control", placeholder=_("Write your E-mail"))}}
+                            </div>
+                            <!-- validacion de errores -->
+                            {% if form.correoreg.errors %}
+                            <div class="alert alert-danger">
+                            {{ form.correoreg.errors[0] }}
+                            </div>
+                            {% endif %}
+                            
+                            <div class="form-group">
+                            {{form.contraseniareg.label()}} {{form.contraseniareg(class="form-control", placeholder=_('Choose a password'))}}
+                            </div>
+                            <!-- validacion de errores -->
+                            {% if form.contraseniareg.errors %}
+                            <div class="alert alert-danger">
+                            {{ form.contraseniareg.errors[0] }}
+                            </div>
+                            {% endif %}
+                            {{form.submitreg(class="btn btn-dark btn-block")}}
+                        </form>
+                        <div class="text-center mt-3">
+                            <p>{{_('Already have an account?')}} <a href="{{ url_for('cuenta.login') }}">{{_('Sign in here')}}</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agrega la referencia a Bootstrap JS y Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+<!-- Display flash messages -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+{% endblock %}

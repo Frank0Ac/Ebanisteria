@@ -1,0 +1,310 @@
+# Translations template for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-01-03 23:54-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: admin/forms.py:20
+msgid "User"
+msgstr ""
+
+#: admin/forms.py:20 cuenta/forms.py:7 cuenta/forms.py:12
+msgid "User name required"
+msgstr ""
+
+#: admin/forms.py:21 admin/forms.py:43
+msgid "Description"
+msgstr ""
+
+#: admin/forms.py:21
+msgid "Description required"
+msgstr ""
+
+#: admin/forms.py:22 admin/forms.py:44
+msgid "Available"
+msgstr ""
+
+#: admin/forms.py:22
+msgid "Quantity required"
+msgstr ""
+
+#: admin/forms.py:22 admin/forms.py:44 carrito/forms.py:7 catalogo/forms.py:7
+msgid "Not valid quantity"
+msgstr ""
+
+#: admin/forms.py:23 admin/forms.py:45
+msgid "Price"
+msgstr ""
+
+#: admin/forms.py:23
+msgid "Price required"
+msgstr ""
+
+#: admin/forms.py:24
+msgid "Thumbanil"
+msgstr ""
+
+#: admin/forms.py:24
+msgid "Image required"
+msgstr ""
+
+#: admin/forms.py:25 admin/forms.py:46
+msgid "Type"
+msgstr ""
+
+#: admin/forms.py:25
+msgid "Type required"
+msgstr ""
+
+#: admin/forms.py:26
+msgid "Add product"
+msgstr ""
+
+#: admin/forms.py:33
+msgid "Type name"
+msgstr ""
+
+#: admin/forms.py:33
+msgid "Name required"
+msgstr ""
+
+#: admin/forms.py:34
+msgid "Save"
+msgstr ""
+
+#: admin/forms.py:37
+msgid "User name"
+msgstr ""
+
+#: admin/forms.py:39 admin/forms.py:48
+msgid "Save changes"
+msgstr ""
+
+#: admin/forms.py:42
+msgid "Product name"
+msgstr ""
+
+#: admin/forms.py:47
+msgid "Thumbnail"
+msgstr ""
+
+#: admin/forms.py:51
+msgid "Delete"
+msgstr ""
+
+#: admin/routes.py:14
+msgid "You are not allowed to access here"
+msgstr ""
+
+#: admin/routes.py:39
+msgid "New type successfully created"
+msgstr ""
+
+#: admin/routes.py:61 admin/routes.py:125
+msgid "Error saving file"
+msgstr ""
+
+#: admin/routes.py:65
+msgid "No image selected"
+msgstr ""
+
+#: admin/routes.py:72
+msgid "Cantidad no valida"
+msgstr ""
+
+#: admin/routes.py:76
+msgid "New product successfully created"
+msgstr ""
+
+#: admin/routes.py:89
+msgid "User successfully edited"
+msgstr ""
+
+#: admin/routes.py:96
+msgid "User successfully deleted"
+msgstr ""
+
+#: admin/routes.py:114
+msgid "Error editing price"
+msgstr ""
+
+#: admin/routes.py:130
+msgid "Product successfully edited"
+msgstr ""
+
+#: admin/routes.py:137
+msgid "Product successfully deleted"
+msgstr ""
+
+#: admin/routes.py:146
+msgid "Typy successfully edited"
+msgstr ""
+
+#: admin/routes.py:153
+msgid "Type successfully deleted"
+msgstr ""
+
+#: carrito/forms.py:7 catalogo/forms.py:7
+msgid "Units"
+msgstr ""
+
+#: carrito/forms.py:7 catalogo/forms.py:7
+msgid "How many do you want?"
+msgstr ""
+
+#: carrito/forms.py:8
+msgid "Change"
+msgstr ""
+
+#: carrito/forms.py:11
+msgid "Buy products"
+msgstr ""
+
+#: carrito/routes.py:31 catalogo/routes.py:25
+msgid "Invalid Quantity"
+msgstr ""
+
+#: carrito/routes.py:45
+msgid "Not enough units available"
+msgstr ""
+
+#: carrito/routes.py:94
+msgid "Purchase successful! Check your email for the invoice."
+msgstr ""
+
+#: carrito/routes.py:96
+msgid "Error sending email. Please try again later."
+msgstr ""
+
+#: catalogo/forms.py:8
+msgid "Add to cart"
+msgstr ""
+
+#: catalogo/routes.py:40
+msgid "Sorry, we could not add the product to your cart"
+msgstr ""
+
+#: cuenta/forms.py:7 cuenta/forms.py:12
+msgid "Username"
+msgstr ""
+
+#: cuenta/forms.py:8 cuenta/forms.py:14
+msgid "Password"
+msgstr ""
+
+#: cuenta/forms.py:8 cuenta/forms.py:14
+msgid "Password required"
+msgstr ""
+
+#: cuenta/forms.py:9
+msgid "Sign in"
+msgstr ""
+
+#: cuenta/forms.py:13 templates/base.html:112
+msgid "E-mail"
+msgstr ""
+
+#: cuenta/forms.py:13
+msgid "E-mail required"
+msgstr ""
+
+#: cuenta/forms.py:15
+msgid "Sign up"
+msgstr ""
+
+#: cuenta/routes.py:27 cuenta/routes.py:64
+msgid "You are already logged in"
+msgstr ""
+
+#: cuenta/routes.py:52
+msgid "Inicio de sesión exitoso"
+msgstr ""
+
+#: cuenta/routes.py:55
+msgid "Wrong username or password"
+msgstr ""
+
+#: cuenta/routes.py:82
+msgid "User or email already in use"
+msgstr ""
+
+#: cuenta/routes.py:100
+msgid "Check your email for a confirmation link."
+msgstr ""
+
+#: cuenta/routes.py:109
+msgid "Successfully logged out"
+msgstr ""
+
+#: cuenta/routes.py:131
+msgid "Email confirmed successfully!"
+msgstr ""
+
+#: cuenta/routes.py:133
+msgid "User not found."
+msgstr ""
+
+#: cuenta/routes.py:135
+msgid "The confirmation link is invalid or has expired."
+msgstr ""
+
+#: errores/routes.py:7
+msgid "Page not found..."
+msgstr ""
+
+#: errores/routes.py:13
+msgid "Server error ..."
+msgstr ""
+
+#: templates/base.html:36 templates/base.html:117
+msgid "Home"
+msgstr ""
+
+#: templates/base.html:40 templates/base.html:118
+msgid "Catalog"
+msgstr ""
+
+#: templates/base.html:47
+msgid "Manage"
+msgstr ""
+
+#: templates/base.html:64
+msgid "Log out"
+msgstr ""
+
+#: templates/base.html:80
+msgid "My account"
+msgstr ""
+
+#: templates/base.html:109 templates/base.html:119
+msgid "Contact"
+msgstr ""
+
+#: templates/base.html:110
+msgid "Adress"
+msgstr ""
+
+#: templates/base.html:111
+msgid "Phone number"
+msgstr ""
+
+#: templates/base.html:115
+msgid "Quick Links"
+msgstr ""
+
+#: templates/base.html:123
+msgid "Our Social Networks"
+msgstr ""
+

@@ -1,0 +1,48 @@
+/* css/styles.css */
+
+body {
+    background-color: #f8f9fa;
+    color: #343a40;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.jumbotron {
+    background-color: #007bff;
+    color: #fff;
+    padding: 4rem;
+    border-radius: 0.3rem;
+    text-align: center;
+}
+
+.jumbotron h1 {
+    font-size: 3.5rem;
+}
+
+.jumbotron p {
+    font-size: 1.5rem;
+}
+
+.jumbotron a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.jumbotron a:hover {
+    text-decoration: underline;
+}
+
+h2 {
+    color: #007bff;
+}
+
+.services {
+    margin-top: 3rem;
+}
+
+.services img {
+    max-width: 100%;
+    height: auto;
+}
+
+

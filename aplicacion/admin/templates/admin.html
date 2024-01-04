@@ -1,0 +1,270 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Bootstrap Nav Tabs to Toggle Forms -->
+<ul class="nav nav-tabs" id="adminTabs">
+  <li class="nav-item">
+    <a class="nav-link {% if active_tab == 'nuevoProductoTab' %}active{% endif %}" id="nuevoProductoTab" data-bs-toggle="tab" href="#nuevoProducto">{{_('New Product')}}</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if active_tab == 'nuevoTipoTab' %}active{% endif %}" id="nuevoTipoTab" data-bs-toggle="tab" href="#nuevoTipo">{{_('Edit Types')}}</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if active_tab == 'editarUsuarioTab' %}active{% endif %}" id="editarUsuarioTab" data-bs-toggle="tab" href="#editarUsuario">{{_('Edit Users')}}</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if active_tab == 'editarProductoTab' %}active{% endif %}" id="editarProductoTab" data-bs-toggle="tab" href="#editarProducto">{{_('Edit Products')}}</a>
+  </li>
+</ul>
+
+<!-- Bootstrap Tab Content to Display Forms -->
+<div class="tab-content">
+  <div class="tab-pane fade {% if active_tab == 'nuevoProductoTab' %}show active{% endif %}" id="nuevoProducto">
+
+    <div class="card">
+      <div class="card-header text-center bg-dark text-white">
+        <h3>{{ _('New Product') }}</h3>
+      </div>
+      <div class="card-body">
+        <form method="POST" action="{{ url_for('admin.nuevo_producto') }}" enctype="multipart/form-data">
+          {{ formNp.hidden_tag() }}
+          <div class="form-group">
+            {{ formNp.nombre.label }} {{ formNp.nombre(class="form-control", placeholder=_('Name of the product')) }}
+          </div>
+          <div class="form-group">
+            {{ formNp.descripcion.label }} {{ formNp.descripcion(class="form-control", placeholder=_('Description')) }}
+          </div>
+          <div class="form-group">
+            {{ formNp.cantidad.label }} {{ formNp.cantidad(class="form-control", placeholder=_('Quantity')) }}
+          </div>
+          <div class="form-group">
+            {{ formNp.costo.label }} {{ formNp.costo(class="form-control", placeholder=_('Price')) }}
+          </div>
+          <div class="form-group">
+            {{ formNp.imagen.label }} {{ formNp.imagen(class="form-control", placeholder=_('Thumbnail')) }}
+          </div>
+          <div class="form-group">
+            {{ formNp.tipo.label }} {{ formNp.tipo(class="form-control", placeholder=_('Product Type')) }}
+          </div>
+          {{ formNp.submit(class="btn btn-dark btn-block") }}
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane fade {% if active_tab == 'nuevoTipoTab' %}show active{% endif %}" id="nuevoTipo">
+    <div class="card">
+      <div class="card-header text-center bg-dark text-white">
+        <h3> {{ _('Produc Types') }}</h3>
+      </div>
+      <div class="card-body">
+        <form method="POST" action="{{ url_for('admin.admin_page') }}">
+          {{ formNt.hidden_tag() }}
+          {{ formNt.nombre.label }} {{ formNt.nombre }}
+          {{ formNt.submit(class="btn btn-dark btn-block") }}
+        </form>
+      </div>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>{{ _('Name') }}</th>
+          <th>{{ _('Edit') }}</th>
+          <th>{{ _('Delete') }}</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for tipo in tipos %}
+        <tr>
+          <td>
+            <label>{{ tipo[0] }}</label>
+          </td>
+          <td>
+            <label>{{ tipo[1] }}</label>
+          </td>
+          <td>
+            <form method="POST" action="{{ url_for('admin.edit_type') }}">
+              {{ formEt.hidden_tag() }}
+              <input type="hidden" name="id" value="{{ tipo[0] }}">
+              {{ formEt.nombre.label }} {{ formEt.nombre }}
+              {{ formEt.submit(class="btn btn-dark btn-block") }}
+            </form>
+          </td>
+          <td>
+            <form method="POST" action="{{ url_for('admin.delete_type') }}">
+              {{ formDt.hidden_tag() }}
+              <input type="hidden" name="id" value="{{ tipo[0] }}">
+              {{ formDt.submit(class="btn btn-dark btn-block") }}
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-pane fade {% if active_tab == 'editarUsuarioTab' %}show active{% endif %}" id="editarUsuario">
+    <h3>{{ _('Edit User') }}</h3>
+    <table class="table">
+
+      <thead>
+        <tr>
+          <th>{{ _('E-mail') }}</th>
+          <th>{{ _('Name') }}</th>
+          <th>{{ _('Type') }}</th>
+          <th>{{ _('Edit') }}</th>
+          <th>{{ _('Delete') }}</th>
+        </tr>
+      </thead>
+
+      <tbody>
+      {% for usuario in usuarios %}
+      {% if session['user_id'] != usuario[0] %}
+      <tr>
+        <td>
+          <label>{{ usuario[1] }}</label>
+        </td>
+        <td>
+          <label>{{ usuario[2] }}</label>
+        </td>
+        <td>
+          <label>{% if usuario[3] %} Admin {% else %} Regular {% endif %}</label>
+        </td>
+        <td>
+          <form method="POST" action="{{ url_for('admin.edit_user') }}">
+            {{ formEu.hidden_tag() }}
+            <input type="hidden" name="id" value="{{ usuario[0] }}">
+            {{ formEu.nombre.label }} {{ formEu.nombre }}
+            {{ formEu.admin.label }} {{ formEu.admin }}
+            {{ formEu.submit(class="btn btn-dark btn-block") }}
+          </form>
+        </td>
+        <td>
+          <!-- Add a delete button here using a new form -->
+          <form method="POST" action="{{ url_for('admin.delete_user') }}">
+            {{ formDu.hidden_tag() }}
+            <input type="hidden" name="id" value="{{ usuario[0] }}">
+            {{ formDu.submit(class="btn btn-dark btn-block") }}
+          </form>
+        </td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- Pagination links -->
+    <div class="pagination">
+      {% for page_num in range(1, (total_usuarios // per_page) + 2) %}
+      {% if page_num == page %}
+      <span class="current">{{ page_num }}</span>
+      {% else %}
+      <a href="{{ url_for('admin.admin_page', page=page_num, active_tab='editarUsuarioTab') }}">{{ page_num }}</a>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+
+  <div class="tab-pane fade {% if active_tab == 'editarProductoTab' %}show active{% endif %}" id="editarProducto">
+    <h3>{{ _('Edit Product') }}</h3>
+    <table class="table table-bordered">
+
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>{{ _('Details') }}</th>
+        <th>{{ _('Edit product') }}</th>
+        <th>{{ _('Delete product') }}</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      {% for producto in productos %}
+      <tr>
+        <td>
+          <label>{{ producto[0] }}</label>
+        </td>
+        <td>
+          <ul>
+            <li> <label>{{ producto[1] }}</label> </li>
+            <li> <label>{{ producto[5] }}</label> </li>
+            <li> <label>{{ _("Available: %s" % producto[2]) }}</label> </li>
+            <li> <label>$ {{ producto[4] }}</label> </li>
+            <li> <label>{{ producto[3] }}</label> </li>
+            <img src="{{ url_for('static', filename='files/' + producto[6]) }}" class="img-thumbnail" style="max-width: 300px" alt="...">
+          </ul>
+        </td>
+        <td>
+          <form method="POST" action="{{ url_for('admin.edit_product') }}" enctype="multipart/form-data">
+            {{ formEp.hidden_tag() }}
+            <input type="hidden" name="id" value="{{ producto[0] }}">
+            <div class="form-group">
+              {{ formEp.nombre.label }} {{ formEp.nombre(class="form-control") }}
+            </div>
+            <div class="form-group">
+              {{ formEp.descripcion.label }} {{ formEp.descripcion(class="form-control") }}
+            </div>
+            <div class="form-group">
+              {{ formEp.cantidad.label }} {{ formEp.cantidad(class="form-control") }}
+            </div>
+            <div class="form-group">
+              {{ formEp.costo.label }} {{ formEp.costo(class="form-control") }}
+            </div>
+            <div class="form-group">
+              {{ formEp.img.label }} {{ formEp.img(class="form-control") }}
+            </div>
+            <div class="form-group">
+              {{ formEp.tipo.label }} {{ formEp.tipo(class="form-control") }}
+            </div>
+            {{ formEp.submit(class="btn btn-dark btn-block") }}
+          </form>
+        </td>
+
+        <td>
+          <!-- Add a delete button here using a new form -->
+          <form method="POST" action="{{ url_for('admin.delete_product') }}">
+            {{ formDp.hidden_tag() }}
+            <input type="hidden" name="id" value="{{ producto[0] }}">
+            {{ formDp.submit(class="btn btn-dark btn-block") }}
+          </form>
+        </td>
+      </tr>
+
+      {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- Pagination links -->
+    <div class="pagination">
+      {% for page_num in range(1, (total_productos // per_page) + 2) %}
+      {% if page_num == page %}
+      <span class="current">{{ page_num }}</span>
+      {% else %}
+      <a href="{{ url_for('admin.admin_page', page=page_num, active_tab='editarProductoTab') }}">{{ page_num }}</a>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- Display flash messages -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+<!-- Bootstrap Scripts for Tab Activation -->
+<script>
+  var adminTabs = new bootstrap.Tab(document.getElementById('{{ active_tab }}'));
+  adminTabs.show();  // Show the first tab by default
+</script>
+{% endblock %}

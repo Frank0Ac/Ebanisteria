@@ -1,0 +1,38 @@
+<link rel="stylesheet" type="text/css" href="{{ url_for('inicio.static', filename='inicio.css') }}">
+
+{% extends "base.html" %}
+
+{% block title %} Pagina inicio {% endblock %}
+
+{% block content %}
+
+<body>
+    <div class="text-center image-section">
+        <img src="{{ url_for('static', filename='img/decor1.jpg') }}" class="imgIzq" alt="Imagen Izquierda">
+        <!-- <img src="{{url_for('static', filename='img/personal.png' )}}" alt="Imagen" class="imgIzq img-fluid"> -->
+        <div class="sectionHome">
+            <h2 class="h2Home">{{_('Welcome to Ebanisteria JyF')}}</h2>
+            <p class="pHome">{{_('Ebanisteria JyF is a company dedicated to manufacturing handmade furniture with the highest quality and attention to detail. We are proud of:')}}</p>
+            <ul class="ulHome">
+                <li class="liHome">{{_('Using the best quality wood to guarantee long-lasting furniture.')}}</li>
+                <li class="liHome">{{_('Offering custom designs to meet the needs of our customers.')}}</li>
+                <li class="liHome">{{_('Focusing on craftsmanship and attention to detail in each piece.')}}</li>
+            </ul>
+            <p class="pHome">{{_('Explore our gallery to see our exclusive designs.')}}</p>
+        </div>
+        <img src="{{ url_for('static', filename='img/decor2.jpg') }}" class="imgDer" alt="Imagen Derecha">
+    </div>
+   
+</body>
+
+<!-- Display flash messages -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+{% endblock %}

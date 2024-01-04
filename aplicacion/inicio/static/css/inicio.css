@@ -1,0 +1,62 @@
+.colorBody{
+    background-color: aquamarine;
+}
+
+.colorLetra{
+    color:blueviolet;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.image-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sectionHome {
+    padding: 20px;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 40px auto;
+    max-width: 600px;
+    text-align: left;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.h2Home {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.pHome {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.ulHome {
+    margin-bottom: 20px;
+}
+
+.liHome {
+    list-style-type: square;
+    margin-left: 20px;
+}
+
+.image-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imgIzq,
+.imgDer {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin: 30px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+}

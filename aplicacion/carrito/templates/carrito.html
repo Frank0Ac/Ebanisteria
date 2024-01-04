@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3 class="text-white bg-dark">{{ _('Your Shopping Cart') }}</h3>
+<table class="table table-bordered">
+
+  <thead>
+    <tr>
+      <th>{{ _('Product') }}</th>
+      <th>{{ _('Details') }}</th>
+      <th>{{ _('Edit') }}</th>
+      <th>{{ _('Remove') }}</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for producto in productos %}
+    <tr>
+      <td>
+        <img src="{{ url_for('static', filename='files/' + producto[4]) }}" class="img-thumbnail"
+          style="max-width: 300px" alt="...">
+      </td>
+      <td>
+        <ul>
+          <li> <label>{{ producto[1] }}</label> </li>
+          <li> <label>{{ _("Quantity: %s" % producto[2]) }}</label> </li>
+          <li> <label>{{ _("Price: $%s" % producto[3]) }}</label> </li>
+        </ul>
+      </td>
+      <td>
+        <form method="POST" action="{{ url_for('carrito.pagina_carrito') }}">
+          {{ form.hidden_tag() }}
+          <input type="hidden" name="id" value="{{ producto[0] }}">
+          <div class="form-group">
+            {{ form.cantidad.label }} {{ form.cantidad(class="form-control", placeholder='1') }}
+          </div>
+          {{ form.submit(class="btn btn-primary") }}
+        </form>
+      </td>
+      <td>
+        <form method="POST" action="{{ url_for('carrito.quitar_producto') }}">
+          {{ formDp.hidden_tag() }}
+          <input type="hidden" name="id" value="{{ producto[0] }}">
+          {{ formDp.submit(class="btn btn-secondary") }}
+        </form>
+      </td>
+    </tr>
+
+    {% endfor %}
+    <tr>
+      <td></td>
+      <td></td>
+      <td>Total = {{ total_to_pay }}</td>
+      <td>
+        <form method="POST" action="{{ url_for('carrito.buy_products') }}">
+          {{ formBp.hidden_tag() }}
+          {% if productos %}
+            {{ formBp.submit(class="btn btn-primary") }}
+          {% else %}
+            {{ formBp.submit(class="btn btn-primary", disabled="disabled") }}
+          {% endif %}
+        </form>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Display flash messages -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+{% endblock %}
