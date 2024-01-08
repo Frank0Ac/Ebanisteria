@@ -5,4 +5,4 @@ from . import inicio
 @inicio.route('/')
 def inicio():
     #Página Inicio
-    return render_template('inicio.html')
+    return render_template('inicio.html') 

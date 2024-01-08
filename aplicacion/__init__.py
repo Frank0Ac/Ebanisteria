@@ -9,6 +9,7 @@ from .carrito import carrito
 from .cuenta import cuenta
 from .errores import errores
 from .admin import admin
+from .acercade import acercade
 
 def get_locale():
     print(request.accept_languages)
@@ -33,3 +34,4 @@ app.register_blueprint(carrito)
 app.register_blueprint(cuenta)
 app.register_blueprint(errores)
 app.register_blueprint(admin)
+app.register_blueprint(acercade)
