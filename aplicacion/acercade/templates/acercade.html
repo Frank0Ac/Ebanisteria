@@ -1,9 +1,20 @@
-{% extends "base.html" %} {% block title %} Acercade {% endblock %} {% block content %}
-<div class="row justify-content-center, mx-auto p-2" style="width: 1200px;">
-    <h2>Acerca de Nosotros</h2>
-    <p class="pAcercade">EbanisteriaJyF es una empresa dedicada a la fabricación, y restauracion de muebles, closets, cocinas integrales, puertas, camas y demas obras en madera hechos a mano con la más alta calidad y atención al detalle. <br> Fundada por Francisco Andres
-        Hernandez Zarama junto a Juan Sebastian Rivera Chacua.</p>
-    <p class="center"> Danos el gusto de atenderte</p>
+{% extends "base.html" %} 
 
-</div>
+{% block title %} Acercade {% endblock %} 
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center my-4">
+            <div class="col-lg-8">
+                <h2 class="text-center">{{ _('Acerca de Nosotros') }}</h2>
+                <p class="lead text-center">{{ _('EbanisteriaJyF es una empresa dedicada a la fabricación y restauración de muebles, closets, cocinas integrales, puertas, camas y demás obras en madera hechas a mano con la más alta calidad y atención al detalle.') }}</p>
+                <p class="text-center">{{ _('Fundada por Francisco Andrés Hernandez Zarama junto a Juan Sebastian Rivera Chacua.') }}</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <p class="h4">{{ _('Danos el gusto de atenderte') }}</p>
+            </div>
+        </div>
+    </div>    
 {% endblock %}

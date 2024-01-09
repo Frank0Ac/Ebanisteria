@@ -8,74 +8,73 @@
     <link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}" type="image/x-icon">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Bootstrap JS y dependencias -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
     <!--  archivo de estilos personalizado -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg " style="background-color:#1F57CF ;">
-        <!-- <div class="container-fluid">
-        <a class="navbar-brand" href="{{ url_for('inicio.inicio') }}">
-          <img src="{{url_for('static', filename='img/logo.png' )}}" alt="icon" width="50" height="50">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button> -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ url_for('inicio.inicio') }}">{{ _('Home') }}</a>
+                    <a class="nav-link active" aria-current="page" href="{{ url_for('inicio.inicio') }}">{{ _('Home')
+                        }}</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ url_for('catalogo.pagina_catalogo') }}">{{ _('Catalog') }}</a>
+                    <a class="nav-link active" aria-current="page" href="{{ url_for('catalogo.pagina_catalogo') }}">{{
+                        _('Catalog') }}</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ url_for('acercade.acercade') }}">{{ _('Acerca de ') }}</a>
+                    <a class="nav-link active" aria-current="page" href="{{ url_for('acercade.acercade') }}">{{
+                        _('Acerca de ') }}</a>
                 </li>
 
                 {% if 'user_id' in session %} {% if 'admin' in session and session['admin'] == 1 %}
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ url_for('admin.admin_page') }}">{{ _('Manage') }}</a>
+                    <a class="nav-link active" aria-current="page" href="{{ url_for('admin.admin_page') }}">{{
+                        _('Manage') }}</a>
                 </li>
                 {% endif %}
 
                 <li class="nav-item disabled">
-                    <label class="navbar-text text-white">Welcome, {{session['username']}}</label>
+                    <label class="navbar-text text-white">{{ _('Welcome') }}, {{session['username']}}</label>
                 </li>
 
                 <li class="nav-item">
                     <form action="{{ url_for('cuenta.logout') }}" method="post" class="nav-link">
                         <button type="submit" class="btn btn-outline-secondary" style="width: 150px;">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                          class="bi bi-box-arrow-left" viewBox="0 0 16 16">
-                          <path d="M3 3.5a.5.5 0 0 1 .5-.5H14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3.5a.5.5 0 0 1 0-1H14a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a.5.5 0 0 1-.5-.5z" />
-                          <path
-                              d="M6.354 11.354a.5.5 0 0 1 0-.708L4.707 9.707h8.793a.5.5 0 0 1 0 1H4.707l1.647 1.646a.5.5 0 0 1 0 .708z" />
-                      </svg>
-                      {{ _('Log out') }}
-                  </button>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                                <path
+                                    d="M3 3.5a.5.5 0 0 1 .5-.5H14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3.5a.5.5 0 0 1 0-1H14a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a.5.5 0 0 1-.5-.5z" />
+                                <path
+                                    d="M6.354 11.354a.5.5 0 0 1 0-.708L4.707 9.707h8.793a.5.5 0 0 1 0 1H4.707l1.647 1.646a.5.5 0 0 1 0 .708z" />
+                            </svg>
+                            {{ _('Log out') }}
+                        </button>
                     </form>
                 </li>
 
                 {% else %}
-
+                
                 <li class="nav-item">
                     <a class="btn btn-outline-secondary nav-link" href="{{ url_for('cuenta.login') }}" style="width: 150px;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
-                  <path fill-rule="evenodd"
-                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z">
-                  </path>
-                </svg> {{ _('My account') }}
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="bi bi-person" width="16" height="16">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8zM8 12s-4 0-4 4v2s0 2 2 2h2m5 0h2a2 2 0 0 0 2-2v-2s0-4-4-4"></path>
+                        </svg> {{ _('My account') }}
                     </a>
-                </li>
+                </li>                               
 
                 {% endif %}
             </ul>
@@ -86,7 +85,8 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="btn btn-outline-secondary" href="{{ url_for('carrito.pagina_carrito') }}">
-                    <img src="{{url_for('static', filename='img/carrito2.png' )}}" fill="currentColor" class="bi bi-person-circle" alt="icon" width="50" height="50">
+                    <img src="{{url_for('static', filename='img/carrito.png' )}}" fill="currentColor"
+                        class="bi bi-person-circle" alt="icon" width="50" height="50">
                 </a>
             </li>
         </ul>
@@ -103,22 +103,23 @@
                 <div class="col-md-4">
                     <h5>{{ _('Contact') }}</h5>
                     <p>{{_('Adress')}}: Heraldo Romero, Ipiales</p>
-                    <p>{{_('Phone number')}}: (123) 456-7890</p>
-                    <p>{{_('E-mail')}}: info@tuempresa.com</p>
+                    <p>{{_('Phone number')}}: 3054288522</p>
+                    <!-- <p>{{_('E-mail')}}: info@tuempresa.com</p> -->
                 </div>
                 <div class="col-md-4">
-                    <h5>{{ _('Quick Links') }}</h5>
+                    <h5>{{ _('Links') }}</h5>
                     <ul class="list-unstyled">
                         <li><a href="{{ url_for('inicio.inicio') }}">{{_('Home')}}</a></li>
                         <li><a href="{{ url_for('catalogo.pagina_catalogo') }}">{{_('Catalog')}}</a></li>
-                        <li><a href="#">{{_('Contact')}}</a></li>
+                        <li><a href="{{ url_for('acercade.acercade') }}">{{_('About')}}</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
                     <h5>{{_('Our Social Networks')}}</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" target="_blank">Facebook</a></li>
-                        <!-- <li><a href="#" target="_blank">Instagram</a></li> -->
+                        <li><a href="https://www.facebook.com/profile.php?id=61550316637775&mibextid=ZbWKwL"
+                                target="_blank">Facebook</a></li>
+                        <li><a href="https://api.whatsapp.com/send?phone=573164790952" target="_blank">WhatsApp</a></li>
                     </ul>
                 </div>
             </div>

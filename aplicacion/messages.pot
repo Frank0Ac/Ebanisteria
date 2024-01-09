@@ -3,11 +3,12 @@
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-03 23:54-0500\n"
+"POT-Creation-Date: 2024-01-08 22:24-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -212,7 +213,7 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-#: cuenta/forms.py:13 templates/base.html:112
+#: cuenta/forms.py:13 templates/base.html:107
 msgid "E-mail"
 msgstr ""
 
@@ -268,43 +269,55 @@ msgstr ""
 msgid "Server error ..."
 msgstr ""
 
-#: templates/base.html:36 templates/base.html:117
+#: templates/base.html:29 templates/base.html:112
 msgid "Home"
 msgstr ""
 
-#: templates/base.html:40 templates/base.html:118
+#: templates/base.html:35 templates/base.html:113
 msgid "Catalog"
 msgstr ""
 
-#: templates/base.html:47
+#: templates/base.html:40
+msgid "Acerca de "
+msgstr ""
+
+#: templates/base.html:46
 msgid "Manage"
+msgstr ""
+
+#: templates/base.html:51
+msgid "Welcome"
 msgstr ""
 
 #: templates/base.html:64
 msgid "Log out"
 msgstr ""
 
-#: templates/base.html:80
+#: templates/base.html:75
 msgid "My account"
 msgstr ""
 
-#: templates/base.html:109 templates/base.html:119
+#: templates/base.html:104
 msgid "Contact"
 msgstr ""
 
-#: templates/base.html:110
+#: templates/base.html:105
 msgid "Adress"
 msgstr ""
 
-#: templates/base.html:111
+#: templates/base.html:106
 msgid "Phone number"
 msgstr ""
 
-#: templates/base.html:115
-msgid "Quick Links"
+#: templates/base.html:110
+msgid "Links"
 msgstr ""
 
-#: templates/base.html:123
+#: templates/base.html:114
+msgid "About"
+msgstr ""
+
+#: templates/base.html:118
 msgid "Our Social Networks"
 msgstr ""
 
